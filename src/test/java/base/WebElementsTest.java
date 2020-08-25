@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class BaseTests {
+public class WebElementsTest {
     private WebDriver driver;
 
     public void setUp() {
@@ -13,18 +13,22 @@ public class BaseTests {
         driver = new ChromeDriver();
         driver.get("https://the-internet.herokuapp.com/");
         //driver.manage().window().fullscreen();
-        System.out.print(driver.getTitle());
+        System.out.print(driver.getTitle() + "\n");
         //locate element by linkText using the findElementBy method
         //new WebElement Class called inputslink (as Variable) and find linktext called Inputs
         WebElement inputsLink = driver.findElement(By.linkText("Inputs"));
         //call the click method
         inputsLink.click();
+        System.out.println(driver.getCurrentUrl());
 
         driver.quit();
     }
 
     public static void main(String args[]){
-        BaseTests test = new BaseTests();
+        WebElementsTest test = new WebElementsTest();
         test.setUp();
     }
+
+
+
 }
